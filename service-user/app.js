@@ -18,6 +18,6 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
-app.use('/refresh_tokens', usersRouter);
+app.use('/refresh_tokens', refreshTokensRouter);
 
 module.exports = app;
