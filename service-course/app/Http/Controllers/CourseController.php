@@ -16,7 +16,7 @@ class CourseController extends Controller
     {
 
         $courses = Course::query();
-
+        
         $q = $request->query('q');
         $status = $request->query('status');
 
