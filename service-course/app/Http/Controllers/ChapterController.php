@@ -20,14 +20,28 @@ class ChapterController extends Controller
 
         $validator = Validator::make($data, $rules);
 
-        if($validator->fails()) {
+        if ($validator->fails()) {
             return response()->json([
                 'status' => 'error',
                 'message' => $validator->errors()
             ], 400);
         }
 
-        
+        $courseId = $request->input('course_id');
+        $course = Course::find($courseId);
+
+        if (!$course) {
+            return response()->json([
+                'status' => 'error',
+                'message' => 'course not found'
+            ], 404);
+        }
+
+        $chapter = Chapter::create($data);
+        return response()->json([
+            'status' => 'success',
+            'data' => $chapter
+        ]);
     }
 
     public function update(Request $request, $id)
