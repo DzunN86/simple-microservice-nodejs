@@ -31,3 +31,5 @@ Route::get('chapters', 'ChapterController@index');
 Route::get('chapters/{id}', 'ChapterController@show');
 Route::delete('chapters/{id}', 'ChapterController@destroy');
 
+Route::post('lessons', 'LessonController@create');
+
