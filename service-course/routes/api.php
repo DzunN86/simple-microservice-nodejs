@@ -33,4 +33,5 @@ Route::delete('chapters/{id}', 'ChapterController@destroy');
 
 Route::post('lessons', 'LessonController@create');
 Route::put('lessons/{id}', 'LessonController@update');
+Route::delete('lessons/{id}', 'LessonController@destroy');
 
