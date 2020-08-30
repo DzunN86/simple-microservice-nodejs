@@ -2,9 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\ImageCourse;
+use App\Course;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
 
-class ImageSourceController extends Controller
+class ImageCourseController extends Controller
 {
     public function create(Request $request)
     {
