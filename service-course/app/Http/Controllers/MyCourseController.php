@@ -2,7 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Course;
+use App\MyCourse;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
+
 
 class MyCourseController extends Controller
 {
