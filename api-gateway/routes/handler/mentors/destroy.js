@@ -1,13 +1,23 @@
-const create = require('./create');
-const get = require('./get');
-const getAll = require('./getAll');
-const update = require('./update');
-const destroy = require('./destroy');
+const apiAdapter = require('../../apiAdapter');
 
-module.exports = {
-  create,
-  get,
-  getAll,
-  update,
-  destroy
+const{
+    URL_SERVICE_COURSE
+} = process.env
+
+const api = apiAdapter(URL_SERVICE_COURSE);
+
+module.exports = async(req, res) => {
+    try{
+        const id = req.params.id;
+        const media = await api.delete(`/media/${id}`);
+        return res.json(media.data);
+    }catch (error){
+
+        if(error.code === 'ECONNREFUSED'){
+            return res.status(500).json({ status: 'error', message: 'service unavailable'});
+        }
+
+        const { status, data } = error.response;
+        return res.status(status).json(data)
+    }
 }
