@@ -36,5 +36,6 @@ app.use('/refresh-tokens', refreshTokenRouter);
 app.use('/mentors', mentorsRouter);
 app.use('/courses', coursesRouter);
 app.use('/chapters', chaptersRouter);
+app.use('/lessons', verifyToken, lessonsRouter);
 
 module.exports = app;
