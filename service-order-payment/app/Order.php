@@ -8,7 +8,7 @@ class Order extends Model
 {
     protected $table = 'orders';
 
-    protected $fillabble = [
+    protected $fillable = [
         'status', 'user_id', 'course_id', 'metadata', 'snap_url'
     ];
 
